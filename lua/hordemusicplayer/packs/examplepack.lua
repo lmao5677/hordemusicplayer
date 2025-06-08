@@ -51,4 +51,4 @@ local Pack = {
 	
 }
 
-HordeMusicPlayer.RegisterMusicPack(Pack)
+HordeMusicPlayer.RegisterMusicPack(Pack) -- LEAVE THIS LINE HERE! OTHERWISE YOUR PACK WILL NOT BE VISIBLE!
