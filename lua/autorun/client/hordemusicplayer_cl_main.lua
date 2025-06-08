@@ -54,7 +54,6 @@ function HordeMusicPlayer_PlayClientTrack(TrackID, TrackType, Combat_Structurele
 	local IntermissionMusicEnabled = GetConVar("hordemusicplayer_client_intermission_enabled"):GetBool()
 	local CombatMusicEnabled = GetConVar("hordemusicplayer_client_combat_enabled"):GetBool()
 	local BossMusicEnabled = GetConVar("hordemusicplayer_client_boss_enabled"):GetBool()
-
 	
 	if TrackType == 0 then -- Intermission
 		if not IntermissionMusicEnabled then return end 
@@ -73,6 +72,11 @@ function HordeMusicPlayer_PlayClientTrack(TrackID, TrackType, Combat_Structurele
 	else -- Boss Phase 2
 		if not BossMusicEnabled then return end
 		TrackData = HordeMusicPlayer.BossTracks[TrackID]["Phase2"]
+		if not TrackData then 
+			TrackData = HordeMusicPlayer.BossTracks[TrackID]["Phase1"]
+		end
+		
+	
 	end
 	
 	local PackID = nil

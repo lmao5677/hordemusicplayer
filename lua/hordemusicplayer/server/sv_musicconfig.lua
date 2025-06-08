@@ -19,7 +19,9 @@ local function HMP_ServerSettingChanged(ConVarName, NewValue, Player)
 			HordeMusicPlayer_PickNextTrack()
 		end
 	elseif ConVarName == "hordemusicplayer_useallpacks" then
-		Player:ChatPrint( "[HMP] - Feature is WIP!" )
+		Player:ChatPrint( "[HMP] - Pack Selection Changed!" )
+		HordeMusicPlayer.BuildAllTracks()
+		HordeMusicPlayer_SyncMusicTracksToClients()
 	end
 end
 

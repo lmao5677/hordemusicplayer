@@ -1,13 +1,11 @@
 if engine.ActiveGamemode() ~= "horde" then return end
 
-HordeMusicPlayer_ShuffleSeed = -1
-
 -- Load Music Packs on server so client can fetch them later
 hook.Add("Initialize", "HMP_ObtainPacksEnabled", function()
 	HordeMusicPlayer_LoadEnabledPacks()
 	
 	local UseAllPacks = GetConVar("hordemusicplayer_useallpacks"):GetBool()
-	HordeMusicPlayer_ShuffleSeed = math.random(1000000)
+	HordeMusicPlayer_ShuffleSeed = math.random(65535)
 	
 	HordeMusicPlayer.BuildAllTracks()
 	

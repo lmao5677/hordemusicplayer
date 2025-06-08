@@ -8,7 +8,10 @@ end )
 
 net.Receive("HMP_SendClientMusicPacks", function()
 	local EnabledPacks = net.ReadTable()
+	local ShuffleSeed = net.ReadUInt(16)
+	
 	HordeMusicPlayer_EnabledMusicPacks = EnabledPacks
+	HordeMusicPlayer_ShuffleSeed = ShuffleSeed
 	HordeMusicPlayer.BuildAllTracks()
 	print("[HMP] Client Packs Loaded!")
 end)

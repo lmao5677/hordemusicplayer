@@ -30,9 +30,18 @@ end
 function HordeMusicPlayer.SortEnabledPackNames(EnabledPackTable)
 	local EnabledPacks = {}
 	for PackNameKey, IsEnabled in pairs(EnabledPackTable) do
-		if IsEnabled then table.insert(EnabledPacks, PackNameKey) end
+		-- Extra check to prevent no longer existing enabled music packs.
+		if IsEnabled and HordeMusicPlayer.PackNameToID[PackNameKey] then table.insert(EnabledPacks, PackNameKey) end
 	end
-	return EnabledPacks
+	if GetConVar("hordemusicplayer_useallpacks"):GetBool() then
+		return EnabledPacks
+	elseif not table.IsEmpty(EnabledPacks) then
+		local RandomPick = math.floor(util.SharedRandom(ShuffleString..HordeMusicPlayer_ShuffleSeed,1,#EnabledPacks+1))
+		local RandomPack = EnabledPacks[RandomPick]
+		return {RandomPack}
+	else
+		return {}
+	end
 end
 
 function HordeMusicPlayer.CreateTrackStructure(PackID, TrackData)

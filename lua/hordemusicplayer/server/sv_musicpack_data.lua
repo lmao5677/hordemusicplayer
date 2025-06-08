@@ -41,6 +41,7 @@ end
 function HordeMusicPlayer_SyncMusicPacksToClients(ply)
 	net.Start("HMP_SendClientMusicPacks")
 	net.WriteTable(HordeMusicPlayer_EnabledMusicPacks)
+	net.WriteUInt(HordeMusicPlayer_ShuffleSeed,16)
 	if IsValid(ply) then
 		net.Send(ply)
 	else
