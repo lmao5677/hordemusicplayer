@@ -51,8 +51,10 @@ You can create a custom music pack as follows:
    - See the [examplepack.lua](https://github.com/lmao5677/hordemusicplayer/blob/main/lua/hordemusicplayer/packs/examplepack.lua) file to understand how to format the lua file properly.
    - **Try to avoid giving the pack the same name, as it will be ignored if theres another one with the same name.**
    - The 'Path' key describes the name of the music file located in the sound folder. You do not need to provide the entire path, just the file name and extension (i.e 'song1.mp3', 'music3.mp3', 'bossmusic4.mp3')
-5. In your sound folder, add your music files.
-6. Your music pack should appear when you run the 'hordemusicplayer_config' command. Click to enable it. (You will know its enabled when theres a tick emoji next to it along with a highlighted red background)
+5. In your sound folder, create a folder named 'hordemusicplayer'.
+6. Inside this folder, create a folder with any name you wish (make sure it matches with your .lua file's Folder value, see line 7 in examplepack.lua).
+7. Add your music files to this folder. Make sure they match the .lua files path names.
+8. Your music pack should appear when you run the 'hordemusicplayer_config' command. Click to enable it. (You will know its enabled when theres a tick emoji next to it along with a highlighted red background)
   
 # Planned Upcoming Features:
 
