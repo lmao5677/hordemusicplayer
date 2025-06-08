@@ -3,6 +3,8 @@ if engine.ActiveGamemode() ~= "horde" then return end
 HordeMusicPlayerClient_CurrentMusic = nil
 HordeMusicPlayerClient_OldMusic = nil
 
+local PreviousTrackType = 1
+
 net.Receive("HMP_ClientPlayTrack",	function()
 	local TrackID = net.ReadUInt(8)
 	local TrackType = net.ReadUInt(2)
@@ -73,6 +75,7 @@ function HordeMusicPlayer_PlayClientTrack(TrackID, TrackType, Combat_Structurele
 		if not BossMusicEnabled then return end
 		TrackData = HordeMusicPlayer.BossTracks[TrackID]["Phase2"]
 		if not TrackData then 
+			if PreviousTrackType == 2 then return end -- Don't cut off phase 1 again.
 			TrackData = HordeMusicPlayer.BossTracks[TrackID]["Phase1"]
 		end
 		
@@ -99,4 +102,6 @@ function HordeMusicPlayer_PlayClientTrack(TrackID, TrackType, Combat_Structurele
 	if GetConVar("hordemusicplayer_client_hints_enabled"):GetBool() and TrackData and ShowHint then 
 		CreateMusicHint(TrackData)
 	end
+	
+	PreviousTrackType = TrackType
 end
