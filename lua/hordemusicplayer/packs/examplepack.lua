@@ -4,10 +4,10 @@
 local Pack = {
     Name = "Custom Pack Example", -- REQUIRED: Name of your music pack. Try to make it unique, clashing names will be skipped.
     Artists = "Example Artist", -- REQUIRED: Names of the artists behind the music pack.
-	Folder = "musicexamplepack", -- REQUIRED: Folder where your music files are located. (See line 2)
+    Folder = "musicexamplepack", -- REQUIRED: Folder where your music files are located. (See line 2)
 	
-	-- Add music paths here. 
-	CombatMusicStructure = { -- 5 and 10 are boss waves, so they are culled out of this table. See BossMusicStructure (below)
+    -- Add music paths here. 
+    CombatMusicStructure = { -- 5 and 10 are boss waves, so they are culled out of this table. See BossMusicStructure (below)
 		[1] = {
 			[1] = { -- This number (1) is the key. Make sure its unique for each track you add.
 			    -- This is the format for each track you want to add. You can put as many but make sure they don't use the same key or they'll get overwritten
