@@ -25,9 +25,8 @@ The addon supports the following types of music tracks that can be played:
 - **SERVER**:
   - hordemusicplayer_enabled [0-1]
     - Determines if the music player will be enabled for everyone or not.
-  - hordemusicplayer_useallpacks [0-1] **(WIP)**
+  - hordemusicplayer_useallpacks [0-1] 
     - Should the music player use every pack enabled and shuffle between them? Or only use one random enabled music pack at a time every game?
-    - **WIP, will be implemented soon**
 - **CLIENT:**
   - hordemusicplayer_client_volume [0...1]
     - A decimal value between 0 to 1. Determines how loud the music is for you, where 0 is essentially muted and 1 is at its max. 0.5 is half and half.
@@ -58,7 +57,7 @@ You can create a custom music pack as follows:
   
 # Planned Upcoming Features:
 
-**NOTE: The features below are not 100% gauraunteed to be implemented, but they may be if there is popular demand.**
+**NOTE: The features below are not 100% guaranteed to be implemented, but they may be if there is popular demand.**
 
 - Support for custom path music (allowing you to use music from other addons or mounted content)
 - Victory Tracks
